@@ -1,0 +1,13 @@
+<div id="group-users">
+	<div class="row">
+		<label for='add_friend'>{{title}}</label>
+		<input list="friends" name="add_friend" #user >
+		<datalist id="friends">
+			<option *ngFor="let user of usersSource" value="{{user.email}}" >
+		</datalist>
+<button class='btn btn-success' (click)="addUser(user)" >Add</button>
+	</div>
+	<div class="row">
+		<app-users-list (removeUserEmitter)="removeUser($event)" [users]="membersSource" [buttonName]="buttonName" ></app-users-list>
+	</div>
+</div>

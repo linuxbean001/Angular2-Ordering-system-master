@@ -1,0 +1,8 @@
+<li *ngIf ="activity.ownedOrder">
+  {{activity.friendInfo.name}} created a {{activity.ownedOrder.name}} order from {{activity.ownedOrder.restaurant}}
+   On {{activity.date}}
+</li>
+<li *ngIf ="activity.joinedOrder">
+  {{activity.friendInfo.name}} joined a {{activity.joinedOrder.name}} order from {{activity.joinedOrder.restaurant}}
+   On {{activity.date}}
+</li>

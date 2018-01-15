@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8">
+			<h1>Orders</h1>
+		</div><br><br>
+		<div class="col-xs-4">
+			<a class="btn btn-success" routerLink="/orders/add" >Start new order</a>
+		</div>
+	</div>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Order</th>
+				<th>Resturants</th>
+				<th>Invited</th>
+				<th>Joined</th>
+				<th>Status</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- Owned orders -->
+			<tr *ngFor=" let order of owned_orders " >
+				<td>{{ order.name }}</td>
+				<td>{{ order.restaurant }}</td>
+				<td>{{ order.invited_user ? 1 : order.invited_group.members.length }}</td>
+				<td>{{ order.joined_members.length }}</td>
+				<td>{{ order.checkout ? 'finished' : 'waiting'  }}</td>
+				<td>
+					<a class=" btn-xs btn-info" [routerLink]="['/orders','details',order._id]">View</a>
+					<a  class=" btn-xs btn-warning" [hidden]="order.checkout" #checkout (click)="checkoutOrder(order._id)">Finish</a>
+					<a class=" btn-xs btn-danger" [hidden]="order.checkout" (click)="cancelOrder(order._id)">Cancel</a>
+
+				</td>
+			</tr>
+			<!-- End Owned Orders -->
+
+			<!-- Invited orders -->
+			<tr *ngFor=" let order of invited_orders " >
+				<td>{{ order.name }}</td>
+				<td>{{ order.restaurant }}</td>
+				<td>{{ order.invited_user ? 1 : order.invited_group.members.length }}</td>
+				<td>{{ order.joined_members.length }}</td>
+				<td>{{ order.checkout ? 'finished' : 'waiting'  }}</td>
+				<td>
+					<a class="btn btn-xs btn-info" [routerLink]="['/orders','details',order._id]" >View</a>
+				</td>
+			</tr>
+			<!-- End Invited Orders -->
+
+		</tbody>
+
+	</table>
+	<span class="alert alert-danger" [hidden]="error == '' " >{{error}}</span>
+</div>

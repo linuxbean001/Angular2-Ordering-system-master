@@ -1,0 +1,2 @@
+<app-header></app-header>
+<app-group-users (addUserEmitter)="addUser($event)" (removeUserEmitter)="removeUser($event)" [membersSource]="allFriends" [usersSource]="allUsers" [title]="usersGroupTitle" [buttonName] = "usersGroupButton"></app-group-users>

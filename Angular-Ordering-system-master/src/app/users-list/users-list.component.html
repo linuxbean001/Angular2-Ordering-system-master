@@ -1,0 +1,3 @@
+<div class="row">
+	<app-user-item (removeUserEmitter)="removeUser($event)" [buttonName]="buttonName" *ngFor="let user of users" [user]="user" ></app-user-item>
+</div>

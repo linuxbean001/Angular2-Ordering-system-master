@@ -1,0 +1,7 @@
+<div id="group-list">
+	<div>Groups</div>
+
+	<app-group-item *ngFor="let group of ownedGroups " [group]="group" [hiddenControls]="false"></app-group-item>
+	<app-group-item *ngFor="let group of joinedGroups " [group]="group" [hiddenControls]="true" ></app-group-item>
+
+</div>

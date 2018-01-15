@@ -1,0 +1,7 @@
+<div id="group-list">
+	<div>Activity Logs</div>
+	<ul>
+		<app-activity *ngFor="let activity of activities" [activity]="activity" [hiddenControls]="false"></app-activity>
+	</ul>
+
+</div>

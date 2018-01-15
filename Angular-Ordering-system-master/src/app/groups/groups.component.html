@@ -1,0 +1,19 @@
+<app-header></app-header>
+
+<h1>Groups</h1>
+<div class="row">
+	<label for="new-group">Group Name </label>
+	<input type="text" name="new-group" [(ngModel)]="groupName" id='new-group'>
+	<button (click)="addGroup()"class='btn btn-warning'>Add</button><br>
+	<ul>
+		<li *ngFor="let error of errors" ><span class="label label-danger">{{ error }}</span></li>
+	</ul>
+</div>
+<div class="row">
+	<div class="col-xs-4">
+		<app-groups-list></app-groups-list>
+	</div>
+	<div class="col-xs-8">
+		<app-group-users (addUserEmitter)="addUser($event)" (removeUserEmitter)="removeUser($event)" [membersSource]="groupMembers" [usersSource]="friendsList" [title]="usersGroupTitle" [buttonName] = "usersGroupButton"></app-group-users>
+	</div>
+</div>	

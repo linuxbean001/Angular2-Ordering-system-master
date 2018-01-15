@@ -1,0 +1,6 @@
+<div id="group-list">
+	<div>Last Orders</div>
+  <ul>
+    <app-last-order *ngFor="let order of lastOrders" [order]="order" [hiddenControls]="false"></app-last-order>
+  </ul>
+</div>

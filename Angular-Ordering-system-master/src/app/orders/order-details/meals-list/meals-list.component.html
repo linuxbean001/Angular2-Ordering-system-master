@@ -1,0 +1,20 @@
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Person</th>
+			<th>Item</th>
+			<th>Amount</th>
+			<th>Price</th>
+			<th>Comment</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor=" let meal of mealsList " >
+			<td>{{ meal.user_id.name }}</td>
+			<td>{{ meal.item }}</td>
+			<td>{{ meal.amount }}</td>
+			<td>{{ meal.price }}</td>
+			<td>{{ meal.comment }} <img  src="assets/images/x.png" [hidden]="!isMyMeal(meal.user_id._id)" (click)="deleteMeal(meal._id)" style="cursor:pointer; width:20px"></td>
+		</tr>
+	</tbody>
+</table>

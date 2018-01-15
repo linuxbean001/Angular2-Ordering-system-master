@@ -1,0 +1,15 @@
+<div class="row">
+	<div class="col-xs-6" id="id" >
+		{{group.name}}
+	</div>
+	<div [hidden]="hiddenControls">
+		
+		<div class="col-xs-3">
+			<app-modal (removeUserEmitter) = "removeUser($event)" [buttonName]="buttonName" [membersSource] = " groupMembers " [title]=" title " [modalLinkTitle] = "modalLinkTitle" (click)="viewGroup(group._id)" ></app-modal>
+		</div>
+		<div class="col-xs-3">
+			<img src="assets/images/x.png" style="cursor: pointer;" class="img-responsive" (click)="deleteGroup(group._id)">
+		</div>
+	</div>
+
+</div>
